@@ -9,7 +9,7 @@ sudo apt-get install mplayer
 Copy script to init.d and add to system startup.
 ```bash
 sudo cp noise_barrier.sh /etc/init.d
-sudo update-rc.d whitenoise.sh defaults
+sudo update-rc.d noise_barrier.sh defaults
 ```
 
 # Volume
