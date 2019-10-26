@@ -9,5 +9,5 @@
 # Description:       plays soundblocking noise
 ### END INIT INFO
 /usr/bin/amixer set PCM -- 100%
-/usr/bin/mplayer -quiet -loop 0 /home/pi/noise/brown.m4a < /dev/null &
+/usr/bin/mplayer -quiet -loop 0 /opt/noise_barrier/brown50.mp4 < /dev/null &
 exit 0
