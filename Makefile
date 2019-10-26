@@ -6,6 +6,7 @@ NAME = noise_barrier
 SCRIPT = $(NAME).sh
 
 install:
+	[ -f /usr/bin/mplayer ]  # Install mplayer if this fails
 	/bin/mkdir -m 755 -p /etc/init.d
 	$(INSTALL) -m 755 $(SCRIPT) /etc/init.d
 	/bin/mkdir -m 755 -p /opt/$(NAME)
