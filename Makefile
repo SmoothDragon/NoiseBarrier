@@ -4,17 +4,20 @@ INSTALL_DIR = /bin/cp -rf
 
 NAME = noise_barrier
 SCRIPT = $(NAME).sh
+SERVICE = $(NAME).service
 
 install:
-	/bin/mkdir -m 755 -p /etc/init.d
-	$(INSTALL) -m 755 $(SCRIPT) /etc/init.d
+	$(INSTALL) -m 644 $(SERVICE) /etc/systemd/system
 	/bin/mkdir -m 755 -p /opt/$(NAME)
+	$(INSTALL) -m 755 $(SCRIPT) /opt/$(NAME) 
 	$(INSTALL) -m 755 brown50.mp4 /opt/$(NAME)
-	/usr/sbin/update-rc.d $(SCRIPT) defaults
+# 	systemctl enable $(SERVICE)
+# 	systemctl start $(SERVICE)
 
 uninstall:
-	/usr/sbin/update-rc.d -f $(SCRIPT) remove
-	-rm -f /etc/init.d/$(SCRIPT)
+	systemctl stop $(SERVICE)
+	systemctl disable $(SERVICE)
+	-rm -f /etc/systemd/system/$(SERVICE)
 	-rm -rf /opt/$(NAME)
 
 clean:
