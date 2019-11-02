@@ -14,6 +14,7 @@ install:
 	/usr/sbin/update-rc.d $(SCRIPT) defaults
 
 uninstall:
+	/usr/sbin/update-rc.d -f $(SCRIPT) stop
 	/usr/sbin/update-rc.d -f $(SCRIPT) remove
 	-rm -f /etc/init.d/$(SCRIPT)
 	-rm -rf /opt/$(NAME)
