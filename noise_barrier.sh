@@ -8,6 +8,10 @@
 # Short-Description: noise_barrier
 # Description:       plays soundblocking noise
 ### END INIT INFO
-/usr/bin/amixer set PCM -- 100%
-/usr/bin/mplayer -quiet -loop 0 /opt/noise_barrier/brown50.mp4 < /dev/null &
-exit 0
+# /usr/bin/amixer set PCM -- 100%
+# /usr/bin/play -c 2 -n synth brownnoise band -n 2500 4000 reverb 20
+# /usr/bin/mplayer -quiet -loop 0 /home/pi/noise/brown.m4a < /dev/null &
+/usr/bin/vlc --loop /opt/noise_barrier/brown50.mp4 < /dev/null
+# /usr/bin/mplayer -loop 0 /opt/noise_barrier/brown50.mp4 < /dev/null
+# /usr/bin/mplayer /opt/noise_barrier/brown50.mp4
+# exit 0

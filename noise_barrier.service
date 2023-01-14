@@ -1,0 +1,20 @@
+[Unit]
+Description=Noise barrier - Run brown noise constantly
+After=sound.target
+After=alsa-restore.service
+
+[Service]
+# Type=forking
+ExecStart=/opt/noise_barrier/noise_barrier.sh
+# WorkingDirectory=/opt/noise_barrier
+# StandardOutput=inherit
+# StandardError=inherit
+# Restart=always
+# RestartSec=10
+# User=pi
+User=root
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=default.target
+
