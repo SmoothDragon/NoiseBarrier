@@ -20,5 +20,14 @@ uninstall:
 	sudo /bin/rm -f /etc/systemd/system/$(SERVICE)
 	sudo /bin/rm -rf /opt/$(NAME)
 
+# This is horrible and I admit it. I couldn't find another way.
+# VLC disallows running as root. This disables that.
+monkey_patch:
+	sudo sed -i 's/geteuid/getppid/' /usr/bin/vlc
+
+unmonkey_patch:
+	sudo sed -i 's/getppid/geteuid/' /usr/bin/vlc
+
+
 status:
 	systemctl status $(SERVICE)

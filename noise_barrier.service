@@ -9,8 +9,8 @@ ExecStart=/opt/noise_barrier/noise_barrier.sh
 # WorkingDirectory=/opt/noise_barrier
 # StandardOutput=inherit
 # StandardError=inherit
-# Restart=always
-# RestartSec=10
+Restart=always
+RestartSec=10
 # User=pi
 User=root
 
